@@ -22,7 +22,7 @@ client.onItemSold(process.env.OPENSEA_SLUG, (event) => {
     const price = ethers.utils.formatUnits(pricebn, decimals);
     const unroundedpriceusd = currencyUSDPrice * price;
     const roundedpriceusd = unroundedpriceusd.toFixed(2);
-    const tweet = `${formattedName} has been bought for ${price} ${currency} ($${roundedpriceusd})! ${link}`;
+    const tweet = `${formattedName} has been caught for ${price} ${currency} ($${roundedpriceusd})! ${link}`;
     console.log(tweet);
     axios.post(`https://maker.ifttt.com/trigger/${process.env.IFTTT_TRIGGER}/with/key/${process.env.IFTTT_KEY}?value1=${tweet}`);
 });
